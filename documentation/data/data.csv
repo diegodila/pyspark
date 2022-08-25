@@ -1,0 +1,23 @@
+cidade,pais,id_cidade,id_pais,value
+são paulo,brasil,1,60,2
+são paulo,brasil,1,60,1
+mato grosso,brasil,2,60,4
+mato grosso,brasil,2,60,3
+toronto,canada,3,61,4
+toronto,canada,3,61,1
+montreal,canada,4,61,2
+montreal,canada,4,61,3
+paris,frança,5,62,4
+montreal,canada,4,61,1
+são paulo,brasil,1,60,2
+são paulo,brasil,1,60,3
+paris,frança,5,62,1
+pequim,china,6,63,2
+pequim,china,6,63,3
+pequim,china,6,63,4
+pequim,china,6,63,5
+shiun,china,7,63,6
+shiun,china,7,63,7
+shiun,china,7,63,8
+shiun,china,7,63,9
+toronto,canada,3,61,10

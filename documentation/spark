@@ -1,0 +1,33 @@
+o que é cluster?
+operam com o mesmo objetivo
+dividir o processamento entre todos o computadores
+é a determinação de um processo que ocorre com o mesmo objetivo
+
+
+arquitetura parecida com um cluster mas não é?
+rede de computadores com email, storage não é um cluster
+
+quais sao os metodos de tolerancia a falha do spark?
+replicação, copiam os dados entre os nós do cluster
+são divididos em copias espalhados no cluster
+
+como o spark ajuda no processamento?
+particionamento, processando os dados em parelelo em nós separados, dividindo os dados em particões, e essa partições são replicadas em varios nós tendo maior disponibilidade
+
+objetivo principal do spark?
+processar dados, produzindo informação processada
+é uma ferramenta de processamento de dados massivos
+
+spark é um projeto ativo?
+sim
+
+como surgiu o hadoop?
+com o google file system(GFS), MapReduce e bigtable
+
+hive foi criado por qual empresa?
+facebook
+
+hive utilizada qual linguagem sobre o hdfs?
+
+
+

@@ -1,7 +1,7 @@
-o que é cluster?
-é a determinação de um processo que ocorre com o mesmo objetivo
+﻿o que é um cluster?
 
-arquitetura parecida com um cluster mas não é?
+
+arquitetura parecida com um cluster mas não são?
 
 
 quais sao os metodos de tolerancia a falha do spark?
@@ -23,7 +23,3 @@ hive foi criado por qual empresa?
 
 
 hive utilizada qual linguagem sobre o hdfs?
-
-
-
-

@@ -27,6 +27,41 @@ hive foi criado por qual empresa?
 facebook
 
 hive utilizada qual linguagem sobre o hdfs?
+sql
+
+-------------------------------------------------------------------------------------------------------
+o que é o spark?
+uma ferramenta de alta performance de processamento de dados, não um storage de dados
+
+quais são as principais caracteristicas do spark?
+é distribuido em cluster
+em memoria, toda operação ocorre em memoria
+veloz
+facilmente escalavel por conta de ser em cluster
+dados em hdfs ou cloud
+suporte a particionamento
+ferramenta que opera em cluster
+replicação e tolerancia a falhas
+
+o que é hdfs?
+sistema de arquivos distribuido
+
+o que é cluster?
+é uma rede de computadores/maquinas que operam com o mesmo objetivo
+
+como funciona a replicação e tolerancia a falha no spark?
+dados são copiados entre os nós do cluster
+
+qual o custo que tem de processar dados?
+custo computacional
+
+qual a origem da linguagem do spark?
+scala
+
+
+
+
+
 
 
 

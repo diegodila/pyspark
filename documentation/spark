@@ -58,6 +58,93 @@ custo computacional
 qual a origem da linguagem do spark?
 scala
 
+--------------------------------------------------------
+
+quais os principais componentes do spark?
+machine learning (mlib)
+sql(spark sql)
+processamento em streming
+processamento de grafos (graphX)
+
+o que o sparksql permite?
+ler dados tabulares de varias fontes, usando sintaxe sql
+
+spark streming quais suas caracteristicas?
+processar dados estruturados
+novos registros adicionados ao final da tabela
+
+como o spark funciona?
+ele constroi grafico aciclicos dirigidos, onde o grafo é uma estrutura de dados compostas por vertices e arestas
+
+o que é uma grafo?
+o grafo é uma estrutura de dados compostas por vertices e arestas
+
+o que é aciclicos dirigidos?
+aciclicos: nao tem ciclo (do vertice voce nao consegue voltar pra ele mesmo)
+dirigidos: tem uma direção 
+
+o que é tungsten?
+é o motor de execução do spark, onde o foco dele é a eficiencia da cpu
+
+qual é a estrutura do spark?
+driver, manager, executer
+
+o que o driver faz?
+inicializa a sparkSession, solicita recursos computacionais do cluster manager, transforma as operações em DAG's, distribui pelo executers
+
+o que o manager faz?
+gerencia recursos do cluster
+
+quais managers são possiveis de utilizar com o spark?
+buit-in standalone, yarn, mesos e kubernetes
+
+o que o executer faz?
+roda em cada nó do cluster executando tarefas
+
+cite 2 elementos do spark?
+SparkSession: seção
+aplications: Programa
+
+dentro de transformaçoes e ações, qual o comportamento do dataframe?
+é uma estrutura de dados imutável
+
+quando uma tranformação ocorre no dataframe o que ocorre?
+ele gera um novo dataframe
+
+qual a vantagem do dado ser imutável?
+traz tolerancia a falhas
+
+quando ocorre o processamento de transformação de fato no spark?
+quando ocorre uma ação
+
+quando processamos dados no spark quais os 2 tipos de operações que fazemos?
+transformações e ações
+
+o que lazy evaluation no spark?
+
+onde voce pode fazer várias transformações no seu dado, o spark irá criar um plano de execução e só irá de fato executar quando ocorrer uma ação
+
+quais os 2 tipos que podem ser uma transformação?
+narrow e wide
+
+o que é narrow?
+quando a transformação que ocorre no dado está na mesma partição
+
+o que é wide?
+quando a transformação ocorre no dado que está em mais de uma partição
+
+como os dados do spark são processados (componentes)?
+job: tarefa que tem ser executada
+stage: Divisão do job
+task: menor unidade de trabalho. Uma por núcleo e por partição
+--------------------------------------------------------
+
+o que é SparkContext?
+é uma conexão transparente com o cluster
+
+o que é SparkSession?
+acesso ao SparkContext
+
 
 
 

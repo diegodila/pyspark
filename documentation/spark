@@ -74,7 +74,7 @@ processar dados estruturados
 novos registros adicionados ao final da tabela
 
 como o spark funciona?
-ele constroi grafico aciclicos dirigidos, onde o grafo é uma estrutura de dados compostas por vertices e arestas
+ele constroi grafos aciclicos dirigidos, onde o grafo é uma estrutura de dados compostas por vertices e arestas
 
 o que é uma grafo?
 o grafo é uma estrutura de dados compostas por vertices e arestas
@@ -121,7 +121,6 @@ quando processamos dados no spark quais os 2 tipos de operações que fazemos?
 transformações e ações
 
 o que lazy evaluation no spark?
-
 onde voce pode fazer várias transformações no seu dado, o spark irá criar um plano de execução e só irá de fato executar quando ocorrer uma ação
 
 quais os 2 tipos que podem ser uma transformação?

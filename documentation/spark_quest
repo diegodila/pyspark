@@ -13,6 +13,7 @@ como o spark ajuda no processamento?
 objetivo principal do spark?
 
 
+
 spark é um projeto ativo?
 
 
@@ -23,3 +24,120 @@ hive foi criado por qual empresa?
 
 
 hive utilizada qual linguagem sobre o hdfs?
+
+
+-------------------------------------------------------------------------------------------------------
+o que é o spark?
+
+
+quais são as principais caracteristicas do spark?
+
+
+
+o que é hdfs?
+
+
+o que é cluster?
+
+
+
+como funciona a replicação e tolerancia a falha no spark?
+
+
+
+qual o custo que tem de processar dados?
+
+
+qual a origem da linguagem do spark?
+
+
+--------------------------------------------------------
+
+quais os principais componentes do spark?
+
+
+
+o que o sparksql permite?
+
+
+spark streming quais suas caracteristicas?
+
+
+como o spark funciona?
+
+
+o que é uma grafo?
+
+
+o que é aciclicos dirigidos?
+
+
+
+o que é tungsten?
+
+
+qual é a estrutura do spark?
+
+
+o que o driver faz?
+
+
+o que o manager faz?
+
+
+quais managers são possiveis de utilizar com o spark?
+
+
+o que o executer faz?
+
+
+cite 2 elementos do spark?
+
+
+
+dentro de transformaçoes e ações, qual o comportamento do dataframe?
+
+
+quando uma tranformação ocorre no dataframe o que ocorre?
+
+
+qual a vantagem do dado ser imutável?
+
+
+quando ocorre o processamento de transformação de fato no spark?
+
+
+quando processamos dados no spark quais os 2 tipos de operações que fazemos?
+
+
+o que lazy evaluation no spark?
+
+
+
+quais os 2 tipos que podem ser uma transformação?
+
+
+o que é narrow?
+
+
+o que é wide?
+
+
+como os dados do spark são processados (componentes)?
+
+
+--------------------------------------------------------
+
+o que é SparkContext?
+
+
+o que é SparkSession?
+
+
+
+
+
+
+
+
+

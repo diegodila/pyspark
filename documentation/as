@@ -133,6 +133,42 @@ o que é SparkContext?
 
 o que é SparkSession?
 
+---------------------------------------------------------
+
+como eram armazenados os dados antigamente?
+
+
+quais são os principais formatos de arquivos abertos para big data?
+
+
+quais são caracteristicas dos armazem de dados em big data atualmente?
+
+
+
+o que é formato de dado parquet?
+
+
+o que é formato de dado arvro?
+
+
+o que é formato de dado orc?
+
+
+qual a melhor perfomance para escrita do dado linha ou coluna?
+
+
+como os banco de dados relacionais são otimizados em perfomance?
+
+
+em geral qual é melhor na criação e compressão, parquet ou orc?
+
+
+em geral qual é melhor na performance, parquet ou orc?
+
+
+qual é formato de arquivos padrão do spark?
+
+
 
 
 

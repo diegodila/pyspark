@@ -1,67 +1,70 @@
 ﻿o que é um cluster?
-
+são maquinas operando com o mesmo objetivo
 
 arquitetura parecida com um cluster mas não são?
-
+rede de computadores
 
 quais sao os metodos de tolerancia a falha do spark?
-
+replicação, copiam os dados em nós do cluster
 
 como o spark ajuda no processamento?
-
+particionando os dados e distribuindo o processamento entre os nos do cluster
 
 objetivo principal do spark?
-
+processamento massivo de dados
 
 
 spark é um projeto ativo?
-
+sim
 
 como surgiu o hadoop?
-
+pelo gfs, do google file system
 
 hive foi criado por qual empresa?
-
+facebook
 
 hive utilizada qual linguagem sobre o hdfs?
-
+sql
 
 -------------------------------------------------------------------------------------------------------
 o que é o spark?
-
+é um projeto de codigo aberto para processar dados
 
 quais são as principais caracteristicas do spark?
-
-
+replicação
+cluterização
+alta disponibilidade
+processamento de dados em memoria
 
 o que é hdfs?
-
+é um sistema de arquivos distribuido
 
 o que é cluster?
-
+são maquinas que operam com o mesmo objetivo
 
 
 como funciona a replicação e tolerancia a falha no spark?
-
+os dados são copiados em nós do cluster
 
 
 qual o custo que tem de processar dados?
-
+computacional
 
 qual a origem da linguagem do spark?
-
+scala 
 
 --------------------------------------------------------
 
 quais os principais componentes do spark?
-
-
+spark machine learnign mlib
+spark sql
+spark grafos
 
 o que o sparksql permite?
-
+leitura de dados tabulares usando a sintaxe sql
 
 spark streming quais suas caracteristicas?
-
+leitura de dados tabulares e escrita no final da tabela
 
 como o spark funciona?
 
@@ -70,14 +73,14 @@ o que é uma grafo?
 
 
 o que é aciclicos dirigidos?
-
-
+aciclicos nao tem ciclos 
+dirigidos tem um direção
 
 o que é tungsten?
-
+é o motor de execução do spark, com foco em eficiencia da cpu
 
 qual é a estrutura do spark?
-
+driver, manager, executer
 
 o que o driver faz?
 

@@ -1,15 +1,27 @@
 
+1.crie uma sessão spark
+
+2.set as variavel para não precisar do show()
+
+3.create dataframe
+
+4.create dataframe explicit
+
+5.Print o Schema
+
+6.Print o Show de um df não truncado 
+
+7.Display DataFrame rows & columns vertically
+
+8.Create a StructType & StructField on DataFrame
+
+9. Create a Row Object
+
+10. Create Custom Class from Row
+
 11: Crie uma contagem de linha com a regra que voce tenha uma partição pelo department, ordenado pelo salario, siga a amostra de dados do rodapé
-from pyspark.sql.window import Window
-from pyspark.sql.functions import row_number
-windowSpec  = Window.partitionBy("department").orderBy("salary")
-df.withColumn("row_number",row_number().over(windowSpec)) \
-    .show(truncate=False)
 
 12: Crie um rankeamento particionado pelo department e ordenado pelo salary, o rank deve ser cumulativo, ex: do 1 1, pula pro 3
-from pyspark.sql.functions import rank
-df.withColumn("rank",rank().over(windowSpec)) \
-    .show()
 
 from pyspark.sql.functions import dense_rank
 df.withColumn("dense_rank",dense_rank().over(windowSpec)) \

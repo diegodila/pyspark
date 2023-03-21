@@ -1,19 +1,27 @@
 
 1.crie uma sessão spark
 
+
 2.set as variavel para não precisar do show()
+
 
 3.create dataframe
 
+
 4.create dataframe explicit
+
 
 5.Print o Schema
 
+
 6.Print o Show de um df não truncado 
+
 
 7.Display DataFrame rows & columns vertically
 
+
 8.Create a StructType & StructField on DataFrame
+
 
 9. Create a Row Object
 

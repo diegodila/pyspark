@@ -1,12 +1,12 @@
 
-1: Crie uma contagem de linha com a regra que voce tenha uma partição pelo department, ordenado pelo salario, siga a amostra de dados do rodapé
+11: Crie uma contagem de linha com a regra que voce tenha uma partição pelo department, ordenado pelo salario, siga a amostra de dados do rodapé
 from pyspark.sql.window import Window
 from pyspark.sql.functions import row_number
 windowSpec  = Window.partitionBy("department").orderBy("salary")
 df.withColumn("row_number",row_number().over(windowSpec)) \
     .show(truncate=False)
 
-2: Crie um rankeamento particionado pelo department e ordenado pelo salary, o rank deve ser cumulativo, ex: do 1 1, pula pro 3
+12: Crie um rankeamento particionado pelo department e ordenado pelo salary, o rank deve ser cumulativo, ex: do 1 1, pula pro 3
 from pyspark.sql.functions import rank
 df.withColumn("rank",rank().over(windowSpec)) \
     .show()

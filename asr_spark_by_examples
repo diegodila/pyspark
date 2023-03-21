@@ -1,0 +1,62 @@
+
+1: Crie uma contagem de linha com a regra que voce tenha uma partição pelo department, ordenado pelo salario, siga a amostra de dados do rodapé
+from pyspark.sql.window import Window
+from pyspark.sql.functions import row_number
+windowSpec  = Window.partitionBy("department").orderBy("salary")
+df.withColumn("row_number",row_number().over(windowSpec)) \
+    .show(truncate=False)
+
+2: Crie um rankeamento particionado pelo department e ordenado pelo salary, o rank deve ser cumulativo, ex: do 1 1, pula pro 3
+from pyspark.sql.functions import rank
+df.withColumn("rank",rank().over(windowSpec)) \
+    .show()
+
+from pyspark.sql.functions import dense_rank
+df.withColumn("dense_rank",dense_rank().over(windowSpec)) \
+    .show()
+
+from pyspark.sql.functions import percent_rank
+df.withColumn("percent_rank",percent_rank().over(windowSpec)) \
+    .show()
+    
+from pyspark.sql.functions import ntile
+df.withColumn("ntile",ntile(2).over(windowSpec)) \
+    .show()
+
+from pyspark.sql.functions import cume_dist    
+df.withColumn("cume_dist",cume_dist().over(windowSpec)) \
+   .show()
+
+from pyspark.sql.functions import lag    
+df.withColumn("lag",lag("salary",2).over(windowSpec)) \
+      .show()
+
+from pyspark.sql.functions import lead    
+df.withColumn("lead",lead("salary",2).over(windowSpec)) \
+    .show()
+    
+windowSpecAgg  = Window.partitionBy("department")
+from pyspark.sql.functions import col,avg,sum,min,max,row_number 
+df.withColumn("row",row_number().over(windowSpec)) \
+  .withColumn("avg", avg(col("salary")).over(windowSpecAgg)) \
+  .withColumn("sum", sum(col("salary")).over(windowSpecAgg)) \
+  .withColumn("min", min(col("salary")).over(windowSpecAgg)) \
+  .withColumn("max", max(col("salary")).over(windowSpecAgg)) \
+  .where(col("row")==1).select("department","avg","sum","min","max") \
+  .show()
+
+
+------------------------------------------------------------------------------
+samples
+simpleData = (("James", "Sales", 3000), \
+    ("Michael", "Sales", 4600),  \
+    ("Robert", "Sales", 4100),   \
+    ("Maria", "Finance", 3000),  \
+    ("James", "Sales", 3000),    \
+    ("Scott", "Finance", 3300),  \
+    ("Jen", "Finance", 3900),    \
+    ("Jeff", "Marketing", 3000), \
+    ("Kumar", "Marketing", 2000),\
+    ("Saif", "Sales", 4100) \
+  )
+columns= ["employee_name", "department", "salary"]

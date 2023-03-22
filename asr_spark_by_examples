@@ -1,69 +1,60 @@
 
-1.crie uma sessão spark
+1: crie uma sessão spark
 
 
-2.set as variavel para não precisar do show()
+2: set as variavel para não precisar do show()
 
 
-3.create dataframe
+3: create dataframe
 
 
-4.create dataframe explicit
+4: create dataframe explicit
 
 
-5.Print o Schema
+5: Print o Schema
 
 
-6.Print o Show de um df não truncado 
+6: Print o Show de um df não truncado 
 
 
-7.Display DataFrame rows & columns vertically
+7: Display DataFrame rows & columns vertically
 
 
-8.Create a StructType & StructField on DataFrame
+8: Create a StructType & StructField on DataFrame
 
 
-9. Create a Row Object
+9: Create a Row Object
 
-10. Create Custom Class from Row
+
+10: Create Custom Class from Row
+
 
 11: Crie uma contagem de linha com a regra que voce tenha uma partição pelo department, ordenado pelo salario, siga a amostra de dados do rodapé
 
+
 12: Crie um rankeamento particionado pelo department e ordenado pelo salary, o rank deve ser cumulativo, ex: do 1 1, pula pro 3
 
-from pyspark.sql.functions import dense_rank
-df.withColumn("dense_rank",dense_rank().over(windowSpec)) \
-    .show()
 
-from pyspark.sql.functions import percent_rank
-df.withColumn("percent_rank",percent_rank().over(windowSpec)) \
-    .show()
+13: Crie um rankeamento particionado pelo department e ordenado pelo salary, o rankeamento dever ser sem gaps, ex: 1,1 pula pro 2
+
+
+14: Crie uma coluna com o rankeamento percentual particionado pelo department e ordenado pelo salary
     
-from pyspark.sql.functions import ntile
-df.withColumn("ntile",ntile(2).over(windowSpec)) \
-    .show()
 
-from pyspark.sql.functions import cume_dist    
-df.withColumn("cume_dist",cume_dist().over(windowSpec)) \
-   .show()
+15: Crie uma coluna com o relative rank of result, within window partition
 
-from pyspark.sql.functions import lag    
-df.withColumn("lag",lag("salary",2).over(windowSpec)) \
-      .show()
 
-from pyspark.sql.functions import lead    
-df.withColumn("lead",lead("salary",2).over(windowSpec)) \
-    .show()
-    
-windowSpecAgg  = Window.partitionBy("department")
-from pyspark.sql.functions import col,avg,sum,min,max,row_number 
-df.withColumn("row",row_number().over(windowSpec)) \
-  .withColumn("avg", avg(col("salary")).over(windowSpecAgg)) \
-  .withColumn("sum", sum(col("salary")).over(windowSpecAgg)) \
-  .withColumn("min", min(col("salary")).over(windowSpecAgg)) \
-  .withColumn("max", max(col("salary")).over(windowSpecAgg)) \
-  .where(col("row")==1).select("department","avg","sum","min","max") \
-  .show()
+16: Crie uma coluna to get the cumulative distribution of values within a window partition.
+
+
+17: Crie uma coluna com o deslocamento de 2 linhas para baixo do salary, particionado pelo department e ordenado pelo salary
+
+
+18: Crie uma coluna com o deslocamento de 2 linhas para cima do salary, particionado pelo department e ordenado pelo salary
+
+
+19: Crie colunas com o avg, sum, min, max do salary, utilize a window_function e o groupby
+
 
 
 ------------------------------------------------------------------------------

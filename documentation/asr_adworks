@@ -1,0 +1,19 @@
+#1
+from pyspark.sql.functions import lit, concat, current_timestamp, current_date
+spark.range(1).select(current_date().alias("doifjdoijf"), concat("current_date",lit("limao")).alias('limao'),current_timestamp().alias("difujdiuf"))
+
+#2
+from pyspark.sql.functions import current_timestamp
+spark.range(1).select(current_timestamp().alias("current_timestamp"))
+
+#3
+spark.read.option('header',True).csv('./work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
+    .where(col("ModifiedDate").astype('date').between('2014','2023')).count()
+    
+#4
+from pyspark.sql.functions import month, year
+spark.range(1).select(month(current_date()).alias("month"),year(current_date()).alias("year"))
+
+#5
+from pyspark.sql.functions import month, year
+spark.range(1).select(month(current_date()).alias("month"))

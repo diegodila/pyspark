@@ -17,3 +17,16 @@ spark.range(1).select(month(current_date()).alias("month"),year(current_date()).
 #5
 from pyspark.sql.functions import month, year
 spark.range(1).select(month(current_date()).alias("month"))
+
+#6
+from pyspark.sql.functions import col
+spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Sales/SalesOrderDetail.csv') \
+    .groupBy("SpecialOfferID").agg(sum(col("UnitPrice").cast('int')).alias('sum_UnitPrice'))
+    
+#7
+spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Sales/SalesOrderDetail.csv') \
+    .groupBy('SpecialOfferID').count()
+    
+#8
+spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Sales/SalesOrderDetail.csv') \
+    .groupBy('ProductID').count()

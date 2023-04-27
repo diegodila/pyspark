@@ -7,8 +7,9 @@ from pyspark.sql.functions import current_timestamp
 spark.range(1).select(current_timestamp().alias("current_timestamp"))
 
 #3
+from pyspark.sql.functions import col, current_date
 spark.read.option('header',True).csv('./work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
-    .where(col("ModifiedDate").astype('date').between('2014','2023')).count()
+    .where(col("ModifiedDate").astype('date').between('2014',current_date())).count()
     
 #4
 from pyspark.sql.functions import month, year
@@ -28,5 +29,18 @@ spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureW
     .groupBy('SpecialOfferID').count()
     
 #8
+from pyspark.sql.functions import count
 spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Sales/SalesOrderDetail.csv') \
-    .groupBy('ProductID').count()
+    .groupBy('ProductID').agg(count("ProductID").alias("ProductID_count")).orderBy(col("ProductID"))
+    
+#9
+from pyspark.sql.functions import count
+spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
+    .groupBy('FirstName').agg(count('FirstName').alias('FirstName_count')).orderBy(col('FirstName'))
+    
+    
+#10
+from pyspark.sql.functions import avg
+spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Production/Product.csv') \
+    .where(col("Color") == "Silver") \
+        .groupBy('Color').agg(avg("ListPrice").alias('ListPrice_avg'))

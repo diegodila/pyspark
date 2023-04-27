@@ -44,3 +44,12 @@ from pyspark.sql.functions import avg
 spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Production/Product.csv') \
     .where(col("Color") == "Silver") \
         .groupBy('Color').agg(avg("ListPrice").alias('ListPrice_avg'))
+        
+#11
+from pyspark.sql.functions import when, trim
+spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Production/Product.csv') \
+    .select("ProductNumber", 'Name','ProductLine',when(trim(col("ProductLine")) == 'R','Road') \
+        .when(trim(col("ProductLine")) == 'M','Montain') \
+            .when(trim(col("ProductLine")) == 'T','Touring') \
+                .when(trim(col("ProductLine")) == 'S', 'Other sale items') \
+                    .otherwise('Not for Sale').alias("Category")).orderBy("ProductNumber")

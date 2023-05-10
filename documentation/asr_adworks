@@ -38,6 +38,9 @@ from pyspark.sql.functions import count
 spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
     .groupBy('FirstName').agg(count('FirstName').alias('FirstName_count')).orderBy(col('FirstName'))
     
+spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
+    .select(col("Firstname")).distinct()
+    
     
 #10
 from pyspark.sql.functions import avg

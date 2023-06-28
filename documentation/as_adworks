@@ -47,3 +47,12 @@
 ##  24. Selecione o TerritoryName, BusinessEntityID, SalesYTD, desloque o salesYTD 1 linha, na janela do territoryName (vSalesPerson)
 
 ##  25. Contar os nomes de registros duplicados da tabela Person
+
+##  26. Faça um join do lado esquerdo (dfa) no id
+from pyspark.sql.types import StructType, StructField,DateType,IntegerType
+import datetime
+schema = StructType([StructField("id",IntegerType(),True), StructField("numeros",IntegerType(),True), StructField("data",DateType(),True)])
+data_a =  [(1, 101, datetime.datetime.strptime('2022-07-20',"%Y-%m-%d")), (2, 102, datetime.datetime.strptime('2132-11-11',"%Y-%m-%d")), (3, 103, datetime.datetime.strptime('2023-10-23',"%Y-%m-%d")), (3, 103, datetime.datetime.strptime('2023-10-21',"%Y-%m-%d")), (9, 103, datetime.datetime.strptime('2023-10-21',"%Y-%m-%d"))]
+data_b = [ (1, 201, datetime.datetime.strptime('20/01/2022', '%d/%m/%Y')),(2, 202, datetime.datetime.strptime('22/10/2032', '%d/%m/%Y')), (3, 203, datetime.datetime.strptime('21/10/2023', '%d/%m/%Y')), (4, 203, datetime.datetime.strptime('21/12/2011', '%d/%m/%Y')), (4, 203, datetime.datetime.strptime('23/11/2011', '%d/%m/%Y')), (5, 203, datetime.datetime.strptime('23/03/2023', '%d/%m/%Y'))]
+dfa = spark.createDataFrame(data_a, schema)
+dfb = spark.createDataFrame(data_b,schema)

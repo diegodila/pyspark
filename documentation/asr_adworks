@@ -56,3 +56,22 @@ spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureW
             .when(trim(col("ProductLine")) == 'T','Touring') \
                 .when(trim(col("ProductLine")) == 'S', 'Other sale items') \
                     .otherwise('Not for Sale').alias("Category")).orderBy("ProductNumber")
+
+#12
+from pyspark.sql.functions import when, col
+spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Production/Product.csv') \
+    .select(col("ProductNumber"), col("Name"), when(col("ListPrice") == 0, "Mfg item - not for resale") \
+        .when(col("ListPrice") < 50, "Under 50") \
+            .when(col("ListPrice") < 250, "Under 250") \
+                .when(col("ListPrice") < 1000, "Under 1000") \
+                    .otherwise('Over 1000').alias("pricerange"), col("ListPrice")).orderBy("ProductNumber")
+
+#13
+from pyspark.sql.functions import col, coalesce
+spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Production/Product.csv') \
+    .select(col('Class'), col('Color'), col('ProductNumber'), coalesce(col('Class'),col('Color'), col('ProductNumber')))
+
+#14
+from pyspark.sql.functions import coalesce, col
+spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Production/Product.csv') \
+    .select(col("Color"), col('ProductNumber'), coalesce(col("Color"), col('ProductNumber')).alias('coalesce'))

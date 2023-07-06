@@ -24,19 +24,19 @@
 
 ##  13. Pegar primeiro nao nulo das colunas (Class, Color, ProductNumber) da tabela product e salvar como firstNotNull (Production.Product)
 
-##  14. Na tabela products pegar a primeira ocorrencia da linha qual que não é nulo e replicar para o dados na seguinte ordem de campos Color, ProductNumber
+##  14. Na tabela products pegar a primeira ocorrencia da linha qual que não é nulo e replicar para o dados na seguinte ordem de campos Color, ProductNumber (Production.Product)
 
-##  15. Selecione todas as colunas da tabela person que tem o suffix nulo
+##  15. Selecione todas as colunas da tabela person que tem o suffix nulo (Person.Person)
 
-##  16. Transforme os dados da tabela person e coluna suffix que são nulos em goiaba *, a coluna transformada deverá chamar énulo
+##  16. Transforme os dados da tabela person e coluna suffix que são nulos em goiaba *, a coluna transformada deverá chamar énulo (Person.Person)
 
-##  17. Converta os endereços secundários que são nulos em endereços primarios da tabela person.address (FAÇA COM COALESCE TAMBEM)
+##  17. Converta os endereços secundários que são nulos em endereços primarios da tabela (person.address) (FAÇA COM COALESCE TAMBEM)
 
 ##  18. Quais nomes tem uma ocorrencia maior que 10 vezes, na tabela Person
 
 ##  19. Quais sobrenomes tem uma ocorrencia maior que 2 vezes, na tabela Person
 
-##  20. Saber se os nomes Greg , Jeff e Sheena tem uma ocorrencia maior que 10 vezes na tabela Person
+##  20. Saber se os nomes Greg, Jeff e Sheena tem uma ocorrencia maior que 10 vezes na tabela Person
 
 ##  21. Quais produtos que no total de vendas estão entre 162k a 500k (salesorderdetail)
 

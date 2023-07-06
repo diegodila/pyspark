@@ -41,7 +41,6 @@ spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureW
 spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
     .select(col("Firstname")).distinct()
     
-    
 #10
 from pyspark.sql.functions import avg
 spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Production/Product.csv') \
@@ -75,3 +74,41 @@ spark.read.format('csv').option('header',True).load('work/pyspark/documentation/
 from pyspark.sql.functions import coalesce, col
 spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Production/Product.csv') \
     .select(col("Color"), col('ProductNumber'), coalesce(col("Color"), col('ProductNumber')).alias('coalesce'))
+
+#15
+from pyspark.sql.functions import col
+spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
+    .where((col('Suffix').isNull()))
+
+#16
+from pyspark.sql.functions import col, coalesce,lit
+spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
+    .fillna('goiaba*',['Suffix'])
+    
+spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
+    .select(coalesce(col('Suffix'), lit('Goiaba*')).alias('Suffix_n'),"*").drop(col('Suffix'))
+
+#17
+from pyspark.sql.funtions import coalesce, col
+spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Person/Address.csv') \
+    .select(coalesce(col('AddressLine2'), col('AddressLine1')).alias('new_column'),"*")
+
+#18
+spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
+    .groupBy('FirstName').count().filter(col('count') > 10)
+
+#19
+from pyspark.sql.functions import count
+spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
+    .groupBy(col('LastName')).agg(count(col('LastName')).alias('count_last_name')).filter(col('count_last_name') > 2).orderBy('LastName')
+
+#20
+from pyspark.sql.functions import col
+spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
+    .where(col('FirstName').isin(['Greg', 'Jeff', 'Sheena'])) \
+        .groupBy('FirstName').count().filter(col('count') > 10)
+
+#21
+from pyspark.sql.functions import col, sum
+spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Sales/SalesOrderDetail.csv') \
+    .groupBy('ProductId').agg(sum(col('LineTotal')).alias('sum_unit_price')).filter(col('sum_unit_price').between(162000,500000))

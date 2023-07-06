@@ -66,3 +66,5 @@ data_carro_b = [(3,'golf',2348934, '55'), (2,'rdx',384374,'1'), (1,"Avalon", 389
 carro_a = spark.createDataFrame(data_carro_a, schema='id int, modelo string, preco int, cod string')
 carro_b = spark.createDataFrame(data_carro_b, schema='id int, modelo string, preco int, cod string')
 carro_a.join(carro_b, carro_a.id == carro_b.id,"leftanti")
+
+## 28. Como retornar o primeiro dado de um dataframe

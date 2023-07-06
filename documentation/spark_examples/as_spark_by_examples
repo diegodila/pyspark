@@ -56,6 +56,8 @@
 19: Crie colunas com o avg, sum, min, max do salary, utilize a window_function e o groupby
 
 
+20: Como retornar o primeiro dado de um dataframe
+
 
 ------------------------------------------------------------------------------
 samples

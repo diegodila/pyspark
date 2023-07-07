@@ -112,3 +112,16 @@ spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureW
 from pyspark.sql.functions import col, sum
 spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Sales/SalesOrderDetail.csv') \
     .groupBy('ProductId').agg(sum(col('LineTotal')).alias('sum_unit_price')).filter(col('sum_unit_price').between(162000,500000))
+
+#22
+from pyspark.sql.functions import col
+spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
+    .where(col('Title') == 'Mr.').groupBy(col('FirstName')).count().where(col('count') > 10)
+
+#23
+from pyspark.sql.functions import col, count
+df1 = spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Person/StateProvince.csv')
+df2 = spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Person/Address.csv') \
+    .groupBy(col('StateProvinceID')).agg(count(col('StateProvinceID')).alias('contagem')).where(col('contagem') > '1000')
+    
+df2.join(df1, df2.StateProvinceID == df1.StateProvinceID).select(df2.StateProvinceID,df1.StateProvinceID,col('contagem'), col('Name'), col('StateProvinceCode')).orderBy(col('contagem').desc())

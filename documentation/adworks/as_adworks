@@ -36,11 +36,11 @@
 
 ##  19. Quais sobrenomes tem uma ocorrencia maior que 2 vezes, na tabela Person
 
-##  20. Saber se os nomes Greg, Jeff e Sheena tem uma ocorrencia maior que 10 vezes na tabela Person
+##  20. Saber se os nomes Greg, Jeff e Sheena tem uma ocorrencia maior que 10 vezes (Person.Person)
 
-##  21. Quais produtos que no total de vendas estão entre 162k a 500k (salesorderdetail)
+##  21. Quais produtos que no total de vendas estão entre 162k a 500k (Sales.SalesOrderDetail)
 
-##  22. Quais nomes tem uma ocorrencia maior que 10 vezes, porem somente onde o titulo é 'Mr.'
+##  22. Quais nomes tem uma ocorrencia maior que 10 vezes, porem somente onde o titulo é 'Mr.' (Person.Person)
 
 ##  23. Identificar as provincias(stateProvinceID) com o maior numero de cadastros no nosso sistema, é preciso encontrar provincias que estão registradas no banco de dados mais que 1000 vezes (trazer os nomes das provincias tambem)
 
@@ -66,5 +66,3 @@ data_carro_b = [(3,'golf',2348934, '55'), (2,'rdx',384374,'1'), (1,"Avalon", 389
 carro_a = spark.createDataFrame(data_carro_a, schema='id int, modelo string, preco int, cod string')
 carro_b = spark.createDataFrame(data_carro_b, schema='id int, modelo string, preco int, cod string')
 carro_a.join(carro_b, carro_a.id == carro_b.id,"leftanti")
-
-## 28. Como retornar o primeiro dado de um dataframe

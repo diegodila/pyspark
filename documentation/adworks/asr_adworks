@@ -123,5 +123,16 @@ from pyspark.sql.functions import col, count
 df1 = spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Person/StateProvince.csv')
 df2 = spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Person/Address.csv') \
     .groupBy(col('StateProvinceID')).agg(count(col('StateProvinceID')).alias('contagem')).where(col('contagem') > '1000')
-    
 df2.join(df1, df2.StateProvinceID == df1.StateProvinceID).select(df2.StateProvinceID,df1.StateProvinceID,col('contagem'), col('Name'), col('StateProvinceCode')).orderBy(col('contagem').desc())
+
+#24
+from pyspark.sql.functions import col, lag
+from pyspark.sql.window import Window
+spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Sales/vSalesPerson.csv') \
+    .where(col('TerritoryName').isin("Northwest", "Southwest", "Canada")) \
+        .select(col("TerritoryName"), col('BusinessEntityID'), col("SalesYTD"), lag(col("SalesYTD"), 1, 0) \
+        .over(Window.partitionBy(col("TerritoryName")).orderBy("BusinessEntityID")).alias('lag'))
+
+#25
+spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Person/Person.csv') \
+    .groupBy('FirstName').count().where(col('count') > 1).count()

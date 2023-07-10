@@ -42,9 +42,9 @@
 
 ##  22. Quais nomes tem uma ocorrencia maior que 10 vezes, porem somente onde o titulo é 'Mr.' (Person.Person)
 
-##  23. Identificar as provincias(stateProvinceID) com o maior numero de cadastros no nosso sistema, é preciso encontrar provincias que estão registradas no banco de dados mais que 1000 vezes (trazer os nomes das provincias tambem)
-
-##  24. Selecione o TerritoryName, BusinessEntityID, SalesYTD, desloque o salesYTD 1 linha, na janela do territoryName (vSalesPerson)
+##  23. Identificar as provincias(stateProvinceID) com o maior numero de cadastros no nosso sistema, é preciso encontrar provincias que estão registradas no banco de dados mais que 1000 vezes (trazer os nomes das provincias tambem) (Person.Address) (Person.StateProvince)
+ 
+##  24. Selecione o TerritoryName, BusinessEntityID, SalesYTD, desloque o salesYTD 1 linha, na janela do territoryName (sales.vSalesPerson)
 
 ##  25. Contar os nomes de registros duplicados da tabela Person
 

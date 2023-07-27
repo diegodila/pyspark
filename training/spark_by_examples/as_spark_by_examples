@@ -59,6 +59,9 @@
 20: Como retornar o primeiro dado de um dataframe
 
 
+22: Como retornar 100 linhas de datas retroativas do ultimo dia do mês em cada linha. ex: 31/06, 30/05, 31/04
+
+
 ------------------------------------------------------------------------------
 samples
 simpleData = (("James", "Sales", 3000), \

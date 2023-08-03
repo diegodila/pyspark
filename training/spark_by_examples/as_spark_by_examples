@@ -62,6 +62,8 @@
 22: Como retornar 100 linhas de datas retroativas do ultimo dia do mês em cada linha. ex: 31/06, 30/05, 31/04
 
 
+22: How to get SparkContext Configurations
+
 ------------------------------------------------------------------------------
 samples
 simpleData = (("James", "Sales", 3000), \

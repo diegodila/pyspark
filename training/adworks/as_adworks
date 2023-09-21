@@ -16,7 +16,7 @@
 
 ##  9. Saber o quantidade de nomes distintos da (person)
 
-##  10. Saber a media de preco para os produtos que sao pratas(silver)
+##  10. Saber a media de preco para os produtos que sao pratas(silver) (Production.Product)
 
 ##  11. Selecione o productNumber e o name transforme o productLine em category 'R' = 'Road', 'M' = 'Mountain','T' = 'Touring', 'S' = 'Other sale items' se não 'Not for sale'  (Production.Product)
 

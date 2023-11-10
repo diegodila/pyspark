@@ -46,6 +46,9 @@ from pyspark.sql.functions import avg
 spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Production/Product.csv') \
     .where(col("Color") == "Silver") \
         .groupBy('Color').agg(avg("ListPrice").alias('ListPrice_avg'))
+
+spark.read.option('header',True).csv('work/pyspark/documentation/data/AdventureWorks/Production/Product.csv') \
+    .groupBy('Color').agg(avg('ListPrice').alias('list')).where(col('Color') == 'Silver')
         
 #11
 from pyspark.sql.functions import when, trim
@@ -68,7 +71,7 @@ spark.read.format('csv').option('header',True).load('work/pyspark/documentation/
 #13
 from pyspark.sql.functions import col, coalesce
 spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Production/Product.csv') \
-    .select(col('Class'), col('Color'), col('ProductNumber'), coalesce(col('Class'),col('Color'), col('ProductNumber')))
+    .select(col('Class'), col('Color'), col('ProductNumber'), coalesce(col('Class'),col('Color'), col('ProductNumber')).alias('FirstNotNull'))
 
 #14
 from pyspark.sql.functions import coalesce, col
@@ -89,6 +92,10 @@ spark.read.format('csv').option('header',True).load('work/pyspark/documentation/
     .select(coalesce(col('Suffix'), lit('Goiaba*')).alias('Suffix_n'),"*").drop(col('Suffix'))
 
 #17
+from pyspark.sql.functions import ifnull
+spark.read.option('header',True).format('csv').load('work/pyspark/documentation/data/AdventureWorks/Person/Address.csv') \
+    .select(ifnull(col('AddressLine2'), col('AddressLine1')).alias('IfNull'),'AddressLine1','AddressLine2')
+
 from pyspark.sql.funtions import coalesce, col
 spark.read.format('csv').option('header',True).load('work/pyspark/documentation/data/AdventureWorks/Person/Address.csv') \
     .select(coalesce(col('AddressLine2'), col('AddressLine1')).alias('new_column'),"*")

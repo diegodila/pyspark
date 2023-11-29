@@ -1,4 +1,13 @@
-﻿o que é um cluster?
+﻿1.1 what's difference between repartion and coalesce in spark?
+repartition() is used to increase or decrease the RDD/DataFrame partitions whereas the PySpark coalesce() is used to only decrease the number of partitions in an efficient way
+
+1.2 why are spark repartion and coalesce expensive?
+because they are very expensive operations as they shuffle the data across many partitions hence try to minimize using these as much as possible.
+
+1.3 what's function of spark coalesce?
+becase it's used only to reduce the number of partitions. This is an optimized or improved version of repartition() where the movement of the data across the partitions is lower using coalesce.
+
+o que é um cluster?
 são maquinas operando com o mesmo objetivo
 
 arquitetura parecida com um cluster mas não são?

@@ -1,30 +1,29 @@
 ﻿1.1 what's difference between repartion and coalesce in spark?
-repartition() is used to increase or decrease the RDD/DataFrame partitions whereas the PySpark coalesce() is used to only decrease the number of partitions in an efficient way
+
 
 1.2 why are spark repartion and coalesce expensive?
-because they are very expensive operations as they shuffle the data across many partitions hence try to minimize using these as much as possible.
+
 
 1.3 what's function of spark coalesce?
-becase it's used only to reduce the number of partitions. This is an optimized or improved version of repartition() where the movement of the data across the partitions is lower using coalesce.
-
-o que é um cluster?
-são maquinas operando com o mesmo objetivo
-
-arquitetura parecida com um cluster mas não são?
-rede de computadores
-
-quais sao os metodos de tolerancia a falha do spark?
-replicação, copiam os dados em nós do cluster
-
-como o spark ajuda no processamento?
-particionando os dados e distribuindo o processamento entre os nos do cluster
-
-objetivo principal do spark?
-processamento massivo de dados
 
 
-spark é um projeto ativo?
-sim
+2.1 o que é um cluster?
+
+
+2.2 arquitetura parecida com um cluster mas não são?
+
+
+2.3 quais sao os metodos de tolerancia a falha do spark?
+
+
+2.4 como o spark ajuda no processamento?
+
+
+2.5 objetivo principal do spark?
+
+
+2.6 spark é um projeto ativo?
+
 
 como surgiu o hadoop?
 pelo gfs, do google file system
@@ -51,35 +50,31 @@ o que é hdfs?
 o que é cluster?
 são maquinas que operam com o mesmo objetivo
 
-
 como funciona a replicação e tolerancia a falha no spark?
 os dados são copiados em nós do cluster
-
 
 qual o custo que tem de processar dados?
 computacional
 
-qual a origem da linguagem do spark?
+qual linguagem utilizada no spark?
 scala 
 
 --------------------------------------------------------
 
 quais os principais componentes do spark?
-spark machine learnign mlib
+spark machine learning mlib
 spark sql
 spark grafos
 
 o que o sparksql permite?
 leitura de dados tabulares usando a sintaxe sql
 
-spark streming quais suas caracteristicas?
+spark streaming quais suas caracteristicas?
 leitura de dados tabulares e escrita no final da tabela
 
 como o spark funciona?
 
-
 o que é uma grafo?
-
 
 o que é aciclicos dirigidos?
 aciclicos nao tem ciclos 

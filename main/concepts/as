@@ -35,17 +35,17 @@ hive utilizada qual linguagem sobre o hdfs?
 sql
 
 -------------------------------------------------------------------------------------------------------
-o que é o spark?
+2.10 o que é o spark?
 é um projeto de codigo aberto para processar dados
 
-quais são as principais caracteristicas do spark?
+2.11 quais são as principais caracteristicas do spark?
 replicação
 cluterização
 alta disponibilidade
 processamento de dados em memoria
 
-o que é hdfs?
-é um sistema de arquivos distribuido
+2.12 o que é hdfs?
+
 
 o que é cluster?
 são maquinas que operam com o mesmo objetivo
@@ -56,7 +56,7 @@ os dados são copiados em nós do cluster
 qual o custo que tem de processar dados?
 computacional
 
-qual linguagem utilizada no spark?
+qual linguagem utilizada na origem do spark?
 scala 
 
 --------------------------------------------------------

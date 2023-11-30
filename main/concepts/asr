@@ -22,11 +22,11 @@ são divididos em copias espalhados no cluster
 2.4: como o spark ajuda no processamento?
 particionamento, processando os dados em parelelo em nós separados, dividindo os dados em particões, e essa partições são replicadas em varios nós tendo maior disponibilidade
 
-5: objetivo principal do spark?
+2.5: objetivo principal do spark?
 processar dados, produzindo informação processada
 é uma ferramenta de processamento de dados massivos
 
-6: spark é um projeto ativo?
+2.6: spark é um projeto ativo?
 sim
 
 7: como surgiu o hadoop?
@@ -39,23 +39,23 @@ facebook
 sql
 
 -------------------------------------------------------------------------------------------------------
-10: o que é o spark?
+2.10: o que é o spark?
 uma ferramenta de alta performance de processamento de dados, não um storage de dados
 
-11: quais são as principais caracteristicas do spark?
+2.11: quais são as principais caracteristicas do spark?
 é distribuido em cluster
 em memoria, toda operação ocorre em memoria
 veloz
-facilmente escalavel por conta de ser em cluster
+facilmente escalavel por conta de ser em cluster - alta disponibilidade
 dados em hdfs ou cloud
 suporte a particionamento
 ferramenta que opera em cluster
 replicação e tolerancia a falhas
 
-12: o que é hdfs?
+2.12: o que é hdfs?
 sistema de arquivos distribuido
 
-13: o que é cluster?
+2.13: o que é cluster?
 é uma rede de computadores/maquinas que operam com o mesmo objetivo
 
 14: como funciona a replicação e tolerancia a falha no spark?
@@ -64,7 +64,7 @@ dados são copiados entre os nós do cluster
 15: qual o custo que tem de processar dados?
 custo computacional
 
-16: qual a origem da linguagem do spark?
+16: qual linguagem utilizada na origem do spark?
 scala
 
 --------------------------------------------------------
@@ -170,7 +170,7 @@ podem ser particionados entre discos (redundancia e parelelismo)
 44: o que é formato de dado parquet?
 sistema de arquivos colunar (perfomance maior para read)
 
-45: o que é formato de dado arvro?
+45: o que é formato de dado avro?
 sistema de arquivos em linha (tem performance melhor para write)
 
 46: o que é formato de dado orc?

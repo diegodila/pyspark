@@ -16,7 +16,7 @@
 2.3 quais sao os metodos de tolerancia a falha do spark?
 
 
-2.4 como o spark ajuda no processamento?
+2.4: como o spark trabalha no processamento?
 
 
 2.5 objetivo principal do spark?
@@ -25,66 +25,59 @@
 2.6 spark é um projeto ativo?
 
 
-como surgiu o hadoop?
-pelo gfs, do google file system
+2.7 como surgiu o hadoop?
 
-hive foi criado por qual empresa?
-facebook
 
-hive utilizada qual linguagem sobre o hdfs?
-sql
+2.8 hive foi criado por qual empresa?
 
--------------------------------------------------------------------------------------------------------
+
+2.9 hive utilizada qual linguagem sobre o hdfs?
+
+
 2.10 o que é o spark?
-é um projeto de codigo aberto para processar dados
 
-2.11 quais são as principais caracteristicas do spark?
-replicação
-cluterização
-alta disponibilidade
-processamento de dados em memoria
+
+2.11: 5 principais caracteristicas do spark?
+
 
 2.12 o que é hdfs?
 
 
-o que é cluster?
-são maquinas que operam com o mesmo objetivo
+2.13 o que é cluster?
 
-como funciona a replicação e tolerancia a falha no spark?
-os dados são copiados em nós do cluster
 
-qual o custo que tem de processar dados?
-computacional
+2.14 como funciona a replicação e tolerancia a falha no spark?
 
-qual linguagem utilizada na origem do spark?
-scala 
 
---------------------------------------------------------
+2.15 qual o custo que tem de processar dados?
 
-quais os principais componentes do spark?
-spark machine learning mlib
-spark sql
-spark grafos
+
+2.16 qual linguagem utilizada na origem do spark?
+
+
+2.17 quais os principais componentes do spark?
+
 
 o que o sparksql permite?
-leitura de dados tabulares usando a sintaxe sql
+
 
 spark streaming quais suas caracteristicas?
-leitura de dados tabulares e escrita no final da tabela
+
 
 como o spark funciona?
 
+
 o que é uma grafo?
 
+
 o que é aciclicos dirigidos?
-aciclicos nao tem ciclos 
-dirigidos tem um direção
+
 
 o que é tungsten?
-é o motor de execução do spark, com foco em eficiencia da cpu
+
 
 qual é a estrutura do spark?
-driver, manager, executer
+
 
 o que o driver faz?
 
@@ -118,7 +111,6 @@ quando processamos dados no spark quais os 2 tipos de operações que fazemos?
 
 
 o que lazy evaluation no spark?
-
 
 
 quais os 2 tipos que podem ser uma transformação?

@@ -19,8 +19,8 @@ rede de computadores com email, storage não é um cluster
 replicação, copiam os dados entre os nós do cluster
 são divididos em copias espalhados no cluster
 
-2.4: como o spark ajuda no processamento?
-particionamento, processando os dados em parelelo em nós separados, dividindo os dados em particões, e essa partições são replicadas em varios nós tendo maior disponibilidade
+2.4: como o spark trabalha no processamento?
+com particionamento, processando os dados em parelelo em nós separados, dividindo os dados em particões, e essa partições são replicadas em varios nós tendo maior disponibilidade
 
 2.5: objetivo principal do spark?
 processar dados, produzindo informação processada
@@ -38,11 +38,10 @@ facebook
 2.9: hive utilizada qual linguagem sobre o hdfs?
 sql
 
--------------------------------------------------------------------------------------------------------
 2.10: o que é o spark?
 uma ferramenta de alta performance de processamento de dados, não um storage de dados
 
-2.11: quais são as principais caracteristicas do spark?
+2.11: 5 principais caracteristicas do spark?
 é distribuido em cluster
 em memoria, toda operação ocorre em memoria
 veloz
@@ -67,9 +66,7 @@ custo computacional
 2.16: qual linguagem utilizada na origem do spark?
 scala
 
---------------------------------------------------------
-
-2.17: quais os principais componentes do spark?
+2.17: 4 principais componentes do spark?
 machine learning (mlib)
 sql(spark sql)
 processamento em streming
@@ -78,11 +75,11 @@ processamento de grafos (graphX)
 2.18: o que o sparksql permite?
 ler dados tabulares de varias fontes, usando sintaxe sql
 
-2.19: spark streming quais suas caracteristicas?
+2.19: spark streaming quais suas caracteristicas?
 processar dados estruturados
 novos registros adicionados ao final da tabela
 
-2.20: como o spark funciona?
+2.20: como o spark funciona por debaixo dos panos?
 ele constroi grafos aciclicos dirigidos, onde o grafo é uma estrutura de dados compostas por vertices e arestas
 
 2.21: o que é uma grafo?

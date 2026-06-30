@@ -196,11 +196,298 @@ timely insights e decision-making
 minimum perfomance degradation
 delaying upgrades or expansions
 
-2.53 
+
+Partition pruning
+Static partitioning
+Dynamic partitioning
 
 
 
+e você está atuando como Engenheiro de Dados e precisa trabalhar com ambientes de centenas de milhões ou bilhões de registros, normalmente existem três pilares que as empresas avaliam:
+
+Ingestão
+Qualidade/Observabilidade
+Performance e Escalabilidade
+
+Vou detalhar cada um deles com foco no que realmente aparece em entrevistas e projetos corporativos.
+
+1. Ferramentas mais utilizadas para ingestão de dados
+Batch (cargas periódicas)
+
+As mais comuns atualmente:
+
+Ferramenta	Cenário
+Apache Airflow	Orquestração de pipelines
+Apache Spark	Processamento distribuído
+dbt Labs (dbt)	Transformação SQL
+Azure Data Factory	ETL/ELT gerenciado
+AWS Glue	ETL serverless
+Google Cloud Dataflow	Batch e streaming
+Mercado brasileiro
+
+As combinações mais comuns são:
+
+Airflow + Spark
+Airflow + Databricks
+Azure Data Factory + Databricks
+Glue + Athena
+dbt + Snowflake
+Streaming
+
+Quando os dados chegam continuamente:
+
+Ferramenta	Uso
+Apache Kafka	Padrão de mercado
+Apache Flink	Streaming em tempo real
+Apache Spark Structured Streaming	Streaming sobre Spark
+Amazon Kinesis	Streaming AWS
+Azure Event Hubs	Streaming Azure
+CDC (Change Data Capture)
+
+Muito usado em bancos transacionais.
+
+Ferramentas líderes:
+
+Ferramenta	Uso
+Debezium	Open source
+Fivetran	SaaS
+Qlik Replicate	Enterprise
+Oracle GoldenGate	Grandes empresas
+2. Ferramentas que garantem qualidade de dados
+
+Existe uma diferença importante:
+
+Data Quality
+
+Valida regras.
+
+Exemplo:
+
+CPF válido
+Sem nulos
+Sem duplicidade
+
+Ferramentas:
+
+Ferramenta	Mercado
+Great Expectations	Muito utilizada
+Soda	Crescimento forte
+AWS Deequ	Spark
+dbt Tests	Muito comum
+Data Observability
+
+Monitora comportamento dos dados.
+
+Detecta:
+
+Queda de volume
+Schema drift
+Freshness
+Anomalias
+
+Ferramentas líderes:
+
+Ferramenta	Categoria
+Monte Carlo Data	Líder de mercado
+Bigeye	Observabilidade
+Acceldata	Enterprise
+Soda Cloud	Observabilidade + Quality
+Governança
+
+Ferramentas para catálogo e linhagem.
+
+Ferramenta
+DataHub
+OpenMetadata
+Microsoft Purview
+Collibra
+3. O que preciso saber quando há problemas de performance?
+
+Aqui está o ponto que diferencia um engenheiro júnior de um sênior.
+
+Muita gente conhece Spark.
+
+Pouca gente entende por que o Spark está lento.
+
+Conceito 1 — Particionamento
+
+Fundamental.
+
+Sem particionamento:
+
+5 TB
+1 tabela
+1 leitura completa
+
+Com particionamento:
+
+ano=2026
+mes=05
+dia=29
+
+O Spark lê apenas o necessário.
+
+Você precisa dominar:
+
+Partition pruning
+Static partitioning
+Dynamic partitioning
+Conceito 2 — Data Skew
+
+Problema extremamente comum.
+
+Exemplo:
+
+cliente_id
+
+95% dos registros pertencem a um único cliente.
+
+Resultado:
+
+1 executor sobrecarregado
+99 executores ociosos
+
+Sintomas:
+
+Stages travadas
+Tasks demorando muito
+
+Soluções:
+
+Salting
+Repartition
+Broadcast Join
+Ajuste de chaves
+Conceito 3 — Shuffle
+
+O maior inimigo da performance.
+
+Operações que causam shuffle:
+
+GROUP BY
+JOIN
+DISTINCT
+ORDER BY
+
+Você precisa saber:
+
+Como identificar shuffle
+Como reduzir shuffle
+Como ler Spark UI
+Conceito 4 — Formato de arquivos
+
+Ruim:
+
+CSV
+JSON
+
+Bom:
+
+Parquet
+
+Melhor:
+
+Delta Lake
+Iceberg
+Hudi
+
+Porque:
+
+Compressão
+Predicate pushdown
+Column pruning
+Conceito 5 — Pequenos arquivos
+
+Problema clássico em Data Lakes.
+
+Exemplo:
+
+500 mil arquivos
+
+de
+
+20 KB
+
+Isso destrói performance.
+
+Você precisa conhecer:
+
+Compaction
+Optimize
+Auto Optimize
+Bin Packing
+Conceito 6 — Broadcast Join
+
+Quando uma tabela é pequena.
+
+Exemplo:
+
+Clientes = 10 MB
+Transações = 3 TB
+
+Sem broadcast:
+
+shuffle gigantesco
+
+Com broadcast:
+
+broadcast(df_clientes)
+
+Praticamente elimina o shuffle.
+
+Conceito 7 — Arquitetura Lakehouse
+
+Hoje o mercado está convergindo para:
+
+Data Lake
++
+Data Warehouse
+=
+Lakehouse
+
+Tecnologias dominantes:
+
+Databricks
+Delta Lake
+Apache Iceberg
+O que normalmente se espera de um Engenheiro de Dados Sênior?
+Ferramentas
+Spark
+Airflow
+Kafka
+Delta Lake ou Iceberg
+Databricks
+Cloud (AWS/Azure/GCP)
+dbt
+Ferramentas de qualidade
+Conceitos
+Distribuição de dados
+Particionamento
+Shuffling
+Data Skew
+CDC
+Streaming
+Data Quality
+Data Contracts
+Observabilidade
+Lakehouse
+Performance
+
+Ser capaz de responder perguntas como:
+
+"Por que um job Spark que executava em 15 minutos passou a executar em 2 horas?"
+
+e investigar:
+
+aumento de volume;
+skew;
+mudança de plano de execução;
+excesso de shuffle;
+explosão de pequenos arquivos;
+falta de particionamento;
+configuração inadequada de executores.
+
+Essa capacidade de diagnosticar gargalos costuma ser mais valorizada em ambientes de alta volumetria do que simplesmente conhecer muitas ferramentas.
 
 
-
-
+Partition pruning in Apache Spark is a performance optimization technique that skips unnecessary partitions during a data scan, significantly reducing I/O and query execution times. "Static Partition Pruning" occurs during the query compilation phase when filter values are explicitly known in the query.What is Static Partition Pruning? Static Partition Pruning happens at compile-time (during query parsing and logical plan generation). Because the filter condition on the partition column uses a known, hardcoded literal, the Catalyst Optimizer knows exactly which partition directories must be scanned before a single byte is actually read.Example:If you have a table partitioned by date and you query:SELECT * FROM sales WHERE date = '2026-05-30'Spark immediately identifies that only the files inside the date=2026-05-30 directory matter. It completely prunes out all other partition directories.How to Achieve Static Partition PruningTo trigger static pruning, write your queries or DataFrame operations with explicit literal filters on the designated partition column:Equality: WHERE partition_col = 'value'In-clauses: WHERE partition_col IN ('v1', 'v2')Ranges: WHERE partition_col BETWEEN 'start' AND 'end'Why It's Great (and Its Limitations)Performance: Drastically reduces I/O, as the Spark engine uses directory metadata rather than scanning the actual data files.Limitation: It is strictly for static scenarios. If the filter condition depends on the results of a joined table (e.g., WHERE date IN (SELECT date FROM another_table)), static pruning cannot be used. In those cases, Spark relies on Dynamic Partition Pruning (DPP) instead.
